@@ -31,14 +31,14 @@ app.controller('MainCtrl',[
   function($scope, posts){
     $scope.posts = posts.posts;
 
-    $scope.addPost = function() {
-      if (!$scope.title || $scope.title === ''){return;};
-      $scope.posts.push({
+    posts.addPost = function() {
+      if (!posts.title || posts.title === ''){return;};
+      posts.posts.push({
         title: $scope.title,
         link: $scope.link,
         upvotes:0});
-      $scope.title = '';
-      $scope.link = '';
+      posts.title = '';
+      posts.link = '';
     }
     $scope.incrementUpvotes = function(post) {
       post.upvotes += 1;
