@@ -1,16 +1,17 @@
 var app = angular.module('thesis', []);
 
-app.controller('MainCtrl',[
-  '$scope',
-  function($scope){
-    $scope.posts = [
-      {title: 'post 1', upvotes: 5},
-      {title: 'post 2', upvotes: 8},
-      {title: 'post 3', upvotes: 2},
-      {title: 'post 4', upvotes: 3}
-    ];
-    
-    $scope.addPost = function(){
+app.controller('MainCtrl', [
+'$scope',
+function($scope){
+  $scope.test = 'Hello world!';
+  $scope.posts = [
+    {title: 'post 1', upvotes: 5},
+    {title: 'post 2', upvotes: 2},
+    {title: 'post 3', upvotes: 15},
+    {title: 'post 4', upvotes: 9},
+    {title: 'post 5', upvotes: 4}
+  ];
+  $scope.addPost = function(){
     if(!$scope.title || $scope.title === '') { return; }
     $scope.posts.push({
       title: $scope.title,
@@ -19,9 +20,8 @@ app.controller('MainCtrl',[
     });
     $scope.title = '';
     $scope.link = '';
-  };
-
-    $scope.incrementUpvotes = function(post) {
-      post.upvotes += 1;
-    }
-  }]);
+};
+$scope.incrementUpvotes = function(post) {
+  post.upvotes += 1;
+};
+}]);
