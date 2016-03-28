@@ -10,21 +10,22 @@ function($stateProvider, $urlRouterProvider) {
       url: '/home',
       templateUrl: '/home.html',
       controller: 'MainCtrl'
-    })
+    });
+  $stateProvider
     .state('posts', {
       url: '/posts/{id}',
       templateUrl: '/posts.html',
       controller: 'PostsCtrl'
   });
   $urlRouterProvider.otherwise('home');
-}])
-.factory('posts' [function(){
+}]);
+app.factory('posts' [function(){
   var o ={
     posts: [{title: 'Hello', link:'', upvotes:0}]
   };
   return o;
-}])
-.controller('MainCtrl',[
+}]);
+app.controller('MainCtrl',[
   '$scope',
   'posts',
   function($scope, posts){
