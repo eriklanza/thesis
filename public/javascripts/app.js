@@ -1,12 +1,7 @@
-var app = angular.module('Thesis', []);
-app.factory('posts' [function(){
-  var o ={
-    posts[]
-  };
-}]);
+var app = angular.module('thesis', []);
+
 app.controller('MainCtrl',[
   '$scope',
-  'posts',
   function($scope){
     $scope.posts = [
       {title: 'post 1', upvotes: 5},
