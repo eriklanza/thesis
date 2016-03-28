@@ -1,8 +1,14 @@
-var app = angular.module('Thesis', []);
+var app = angular.module('Thesis', ['ui.router']);
+app.factory('posts' [function(){
+  var o ={
+    posts[]
+  };
+}]);
 
 app.controller('MainCtrl',[
   '$scope',
-  function($scope){
+  'posts',
+  function($scope, posts){
     $scope.posts = [
       {title: 'post 1', upvotes: 5},
       {title: 'post 2', upvotes: 8},
@@ -21,4 +27,17 @@ app.controller('MainCtrl',[
     $scope.incrementUpvotes = function(post) {
       post.upvotes += 1;
     }
+    $scope.posts = posts.posts;
   }]);
+
+  app.config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider){
+      $stateProvider
+      .state('home',{
+        url: '/home',
+        templateUrl: '/home.html',
+        controller: 'MainCtrl'
+      });
+    }]);
